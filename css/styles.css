@@ -490,6 +490,43 @@ button {
   background: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(201, 150, 43, 0.12), rgba(107, 20, 38, 0.05) 50%, transparent 80%);
 }
 
+/* Background Video in Hero (Muted & Cropped) */
+.hero-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.38;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 15%, rgba(201, 150, 43, 0.12), rgba(107, 20, 38, 0.18) 45%, rgba(17, 13, 11, 0.88) 80%),
+              linear-gradient(180deg, rgba(17, 13, 11, 0.5) 0%, rgba(17, 13, 11, 0.72) 65%, var(--color-canvas) 100%);
+  z-index: 1;
+}
+
 .hero-section::before {
   content: "";
   position: absolute;
@@ -1053,7 +1090,7 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   9. The Demo Tour (Section D)
+   9. The Demo Tour (Section D) & Interactive APK Phone Carousel
    -------------------------------------------------------------------------- */
 .tour-layout-wrapper {
   display: block;
@@ -1061,58 +1098,142 @@ button {
 
 .tour-layout-wrapper.has-mockup {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: var(--spacing-xl);
+  grid-template-columns: 1.25fr 1fr;
+  gap: var(--spacing-2xl);
   align-items: center;
 }
 
-.tour-layout-wrapper.has-mockup .tour-layout {
-  grid-template-columns: 1fr;
-}
-
 .tour-layout {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
+/* Tour Overview Selector Bar */
+.tour-overview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  box-shadow: inset 0 1px 0 0 var(--color-hairline-highlight);
+}
+
+.tour-overview-bar:hover {
+  border-color: var(--color-hairline-strong);
+  background: var(--color-surface-2);
+  transform: translateY(-1px);
+}
+
+.tour-overview-bar.is-active {
+  border-color: var(--color-gold);
+  background: rgba(201, 150, 43, 0.08);
+  box-shadow: inset 0 0 0 1px var(--color-gold), 0 4px 16px -2px rgba(201, 150, 43, 0.18);
+}
+
+.tour-overview-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.tour-overview-text {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-ink);
+  flex-grow: 1;
+}
+
+.tour-overview-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(201, 150, 43, 0.15);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold-border);
+}
+
+/* Interactive Tour Cards */
 .tour-card {
   background: var(--color-surface-1);
   border: 1px solid var(--color-hairline);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 18px 20px;
   box-shadow: inset 0 1px 0 0 var(--color-hairline-highlight);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
 }
 
 .tour-card:hover {
   border-color: var(--color-hairline-strong);
   transform: translateY(-2px);
+  background: var(--color-surface-2);
+}
+
+.tour-card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.tour-card.is-active {
+  border-color: var(--color-gold);
+  background: var(--color-surface-2);
+  box-shadow: inset 0 0 0 1px var(--color-gold), 0 8px 24px -4px rgba(201, 150, 43, 0.22);
+  transform: translateY(-2px);
+}
+
+.tour-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .tour-card-num {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--color-gold);
-  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.tour-card-visited {
+  font-size: 11px;
+  font-weight: 500;
+  color: #38a169;
+  background: rgba(56, 161, 105, 0.12);
+  border: 1px solid rgba(56, 161, 105, 0.25);
+  border-radius: 999px;
+  padding: 2px 8px;
 }
 
 .tour-card-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--color-ink);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .tour-card-desc {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--color-ink-muted);
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .tour-chips {
@@ -1122,11 +1243,261 @@ button {
   gap: 6px;
 }
 
-/* Optional Exhibit Phone Frame Beside Cards (when image exists) */
+/* Exhibit Phone Frame with Carousel */
 .exhibit-phone-container {
-  display: none; /* Silently skipped if image does not exist, unhidden via JS if loaded */
+  display: block;
+  width: 100%;
   max-width: 320px;
   margin: 0 auto;
+}
+
+.phone-carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform;
+}
+
+.phone-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.phone-carousel-slide::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-screenshot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Exhibit Detail Card in Carousel Slide (Simulating SmartMuseum APK Detail View) */
+.phone-detail-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #fbf7ef;
+  color: #1b1613;
+  padding: 34px 14px 44px 14px;
+  box-sizing: border-box;
+}
+
+.phone-card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.phone-card-stop-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: #1b1613;
+  color: #e6c875;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.phone-card-status {
+  font-size: 11px;
+  font-weight: 600;
+  color: #276749;
+  background: #c6f6d5;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.phone-card-media-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.phone-card-img {
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+  display: block;
+}
+
+.phone-card-beacon-ping {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(17, 13, 11, 0.85);
+  backdrop-filter: blur(4px);
+  color: #e6c875;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(230, 200, 117, 0.35);
+}
+
+.beacon-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #48bb78;
+  display: inline-block;
+  box-shadow: 0 0 6px #48bb78;
+  animation: beaconPulse 2s infinite;
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.phone-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.phone-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1b1613;
+  margin-bottom: 2px;
+}
+
+.phone-card-subtitle {
+  font-size: 11px;
+  color: #6a5e55;
+  margin-bottom: 10px;
+}
+
+.phone-card-audio-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ede6d8;
+  border: 1px solid #dfd4c0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+}
+
+.phone-audio-icon {
+  font-size: 10px;
+  color: #8c1d32;
+}
+
+.phone-audio-meta {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #3d322b;
+}
+
+.phone-card-text {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #443b35;
+  margin-bottom: 12px;
+}
+
+.phone-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.chip-sm {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #ede6d8;
+  color: #55483e;
+  font-weight: 500;
+}
+
+/* Carousel Controls Inside Phone */
+.phone-carousel-controls {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  pointer-events: auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(17, 13, 11, 0.78);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.carousel-btn:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: #110d0b;
+  transform: scale(1.08);
+}
+
+.carousel-indicators {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(17, 13, 11, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.carousel-dot.is-active {
+  background: var(--color-gold);
+  width: 16px;
+  border-radius: 999px;
 }
 
 /* --------------------------------------------------------------------------

@@ -4,11 +4,40 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeroVideo();
   initNavigation();
   initScrollSpy();
   initScrollReveal();
-  initMockupFallbacks();
+  initTourCarousel();
 });
+
+/**
+ * Background hero video playback initialization (Muted & Autoplay assurance)
+ */
+function initHeroVideo() {
+  const video = document.querySelector('.hero-video-bg');
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Autoplay might be deferred by browser policy until first user interaction
+      const resume = () => {
+        video.play().catch(() => {});
+        window.removeEventListener('touchstart', resume);
+        window.removeEventListener('click', resume);
+        window.removeEventListener('scroll', resume);
+      };
+      window.addEventListener('touchstart', resume, { passive: true });
+      window.addEventListener('click', resume, { passive: true });
+      window.addEventListener('scroll', resume, { passive: true });
+    });
+  }
+}
 
 /**
  * Mobile navigation toggle and link clicks
@@ -105,24 +134,155 @@ function initScrollReveal() {
 }
 
 /**
- * Handle screen mockups:
- * - assets/images/screen-exhibit.png: if exists, show phone frame beside tour cards; else silently skip
+ * Palace Tour Mobile Display Carousel
+ * Handles sliding between APK Overview screenshot and individual tour stops
  */
-function initMockupFallbacks() {
-  const exhibitContainer = document.getElementById('tour-exhibit-mockup');
-  const exhibitImg = document.getElementById('screen-exhibit-img');
+function initTourCarousel() {
+  const track = document.getElementById('tour-carousel-track');
+  const slides = document.querySelectorAll('.phone-carousel-slide');
+  const prevBtn = document.querySelector('.carousel-btn-prev');
+  const nextBtn = document.querySelector('.carousel-btn-next');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const tourCards = document.querySelectorAll('.tour-card');
+  const overviewBar = document.querySelector('.tour-overview-bar');
+  const phoneMockup = document.querySelector('.phone-mockup');
 
-  if (exhibitContainer && exhibitImg) {
-    const tester = new Image();
-    tester.src = 'assets/images/screen-exhibit.png';
-    tester.onload = () => {
-      exhibitImg.src = tester.src;
-      exhibitContainer.style.display = 'block';
-      const tourGrid = document.querySelector('.tour-layout-wrapper');
-      if (tourGrid) tourGrid.classList.add('has-mockup');
-    };
-    tester.onerror = () => {
-      exhibitContainer.style.display = 'none';
-    };
+  if (!track || !slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoTimer = null;
+  const AUTO_INTERVAL = 5500;
+
+  function updateSlide(index) {
+    currentIndex = (index + totalSlides) % totalSlides;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Update slide classes and aria attributes
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === currentIndex);
+      slide.setAttribute('aria-hidden', i !== currentIndex ? 'true' : 'false');
+    });
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === currentIndex);
+      dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+    });
+
+    // Update overview bar active state
+    if (overviewBar) {
+      overviewBar.classList.toggle('is-active', currentIndex === 0);
+    }
+
+    // Update tour cards active states (stops 1, 2, 3 correspond to slide index 1, 2, 3)
+    tourCards.forEach(card => {
+      const stopNum = parseInt(card.getAttribute('data-stop'), 10);
+      card.classList.toggle('is-active', stopNum === currentIndex);
+    });
   }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoTimer = setInterval(() => {
+      updateSlide(currentIndex + 1);
+    }, AUTO_INTERVAL);
+  }
+
+  function stopAutoPlay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  // Prev / Next button listeners
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stopAutoPlay();
+      updateSlide(currentIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stopAutoPlay();
+      updateSlide(currentIndex + 1);
+    });
+  }
+
+  // Dots navigation
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stopAutoPlay();
+      const target = parseInt(dot.getAttribute('data-slide-target'), 10);
+      updateSlide(target);
+    });
+  });
+
+  // Overview selector button
+  if (overviewBar) {
+    overviewBar.addEventListener('click', () => {
+      stopAutoPlay();
+      updateSlide(0);
+    });
+  }
+
+  // Tour cards click to jump to corresponding stop slide
+  tourCards.forEach(card => {
+    card.addEventListener('click', () => {
+      stopAutoPlay();
+      const stopNum = parseInt(card.getAttribute('data-stop'), 10);
+      updateSlide(stopNum);
+    });
+
+    // Keyboard accessibility: Enter or Space
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        stopAutoPlay();
+        const stopNum = parseInt(card.getAttribute('data-stop'), 10);
+        updateSlide(stopNum);
+      }
+    });
+  });
+
+  // Touch swipe support for mobile
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    stopAutoPlay();
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    // Horizontal swipe threshold
+    if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX < 0) {
+        updateSlide(currentIndex + 1);
+      } else {
+        updateSlide(currentIndex - 1);
+      }
+    }
+  }, { passive: true });
+
+  // Pause on hover
+  if (phoneMockup) {
+    phoneMockup.addEventListener('mouseenter', stopAutoPlay);
+    phoneMockup.addEventListener('mouseleave', startAutoPlay);
+  }
+
+  // Initial setup
+  updateSlide(0);
+  startAutoPlay();
 }

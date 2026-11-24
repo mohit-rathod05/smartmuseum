@@ -63,6 +63,15 @@
   <main id="main-content">
     <!-- SECTION A: HERO -->
     <section id="hero" class="hero-section">
+      <!-- Background Video (Muted & Cropped) -->
+      <div class="hero-video-wrapper" aria-hidden="true">
+        <video class="hero-video-bg" autoplay loop muted playsinline preload="auto">
+          <source src="assets/Video/hero-bg.mp4" type="video/mp4">
+          <source src="assets/Video/gemini_generated_video_12172962.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+
       <div class="container">
         <div class="hero-content reveal">
           <span class="eyebrow">
@@ -73,7 +82,7 @@
             Discover. Experience. Connect.
           </span>
           <h1 class="hero-title">Step close to any exhibit.<br class="hero-title-break"><span class="hero-title-highlight">Its story unfolds on your phone.</span></h1>
-          <p class="hero-sub">SmartMuseum is a beacon-based digital heritage guide. Small Bluetooth beacons beside each exhibit open its story on your phone automatically, with no drilling and no wiring.</p>
+          <p class="hero-sub">SmartMuseum is a beacon-powered digital heritage guide. Nearby Bluetooth beacons open exhibit stories on visitor phones automatically &mdash; zero scanning, zero wiring.</p>
           <div class="hero-cta-group">
             <a href="#demo" class="btn btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -102,7 +111,7 @@
               </div>
               <div class="hero-feature-info">
                 <h3 class="hero-feature-title">Walk-Up Detection</h3>
-                <p class="hero-feature-desc">Step within 1–2 meters of any exhibit. Its story opens automatically.</p>
+                <p class="hero-feature-desc">Step within 1&ndash;2 meters. Stories open automatically.</p>
               </div>
             </div>
 
@@ -115,7 +124,7 @@
               </div>
               <div class="hero-feature-info">
                 <h3 class="hero-feature-title">Zero Scanning</h3>
-                <p class="hero-feature-desc">No QR codes to align, no numbers to type, and zero tapping required.</p>
+                <p class="hero-feature-desc">No QR codes to align, no numbers to type, zero tapping.</p>
               </div>
             </div>
 
@@ -126,8 +135,8 @@
                 </svg>
               </div>
               <div class="hero-feature-info">
-                <h3 class="hero-feature-title">Offline & Private</h3>
-                <p class="hero-feature-desc">Works 100% offline via local BLE beacons. Zero logins, zero tracking.</p>
+                <h3 class="hero-feature-title">Offline &amp; Private</h3>
+                <p class="hero-feature-desc">Works 100% offline via local beacons. Zero logins or tracking.</p>
               </div>
             </div>
           </div>
@@ -143,11 +152,11 @@
         <div class="section-header center reveal">
           <span class="eyebrow">Visitor Journey</span>
           <h2 class="section-title">A seamless digital heritage experience</h2>
-          <p class="section-subtitle">Seven effortless steps that turn a traditional palace walk into an intuitive, location-aware journey.</p>
+          <p class="section-subtitle">Four effortless steps turning a palace walk into an intuitive, location-aware exploration.</p>
         </div>
 
         <div class="journey-layout">
-          <!-- 7 Steps Vertical Timeline -->
+          <!-- 4 Steps Vertical Timeline -->
           <div class="timeline-wrap reveal">
             <div class="timeline-vertical">
               <!-- Step 1 -->
@@ -156,7 +165,7 @@
                   <div class="step-marker">1</div>
                   <h3 class="step-title">Enter the palace</h3>
                 </div>
-                <p class="step-desc">Start the tour on your phone.</p>
+                <p class="step-desc">Start your tour on the SmartMuseum app.</p>
                 <div class="step-chip-wrap">
                   <span class="chip chip-built">In demo</span>
                 </div>
@@ -166,9 +175,9 @@
               <div class="timeline-step">
                 <div class="step-header">
                   <div class="step-marker">2</div>
-                  <h3 class="step-title">Phone detects the nearest beacon</h3>
+                  <h3 class="step-title">Automatic beacon detection</h3>
                 </div>
-                <p class="step-desc">The app picks the strongest nearby beacon.</p>
+                <p class="step-desc">Your phone senses the nearest exhibit beacon within 1&ndash;2 meters.</p>
                 <div class="step-chip-wrap">
                   <span class="chip chip-built">In demo</span>
                 </div>
@@ -178,11 +187,11 @@
               <div class="timeline-step">
                 <div class="step-header">
                   <div class="step-marker">3</div>
-                  <h3 class="step-title">Palace map opens</h3>
+                  <h3 class="step-title">Exhibit story unfolds</h3>
                 </div>
-                <p class="step-desc">See where you are and what is nearby.</p>
+                <p class="step-desc">Historical narratives, audio narration, and archival photos open automatically.</p>
                 <div class="step-chip-wrap">
-                  <span class="chip chip-planned">Planned</span>
+                  <span class="chip chip-built">In demo</span>
                 </div>
               </div>
 
@@ -190,45 +199,9 @@
               <div class="timeline-step">
                 <div class="step-header">
                   <div class="step-marker">4</div>
-                  <h3 class="step-title">You reach an exhibit</h3>
+                  <h3 class="step-title">Keep walking freely</h3>
                 </div>
-                <p class="step-desc">The exhibit page opens automatically.</p>
-                <div class="step-chip-wrap">
-                  <span class="chip chip-built">In demo</span>
-                </div>
-              </div>
-
-              <!-- Step 5 -->
-              <div class="timeline-step">
-                <div class="step-header">
-                  <div class="step-marker">5</div>
-                  <h3 class="step-title">Discover stories, images, audio and video</h3>
-                </div>
-                <p class="step-desc">Everything for that exhibit in one place.</p>
-                <div class="step-chip-wrap">
-                  <span class="chip chip-built">In demo</span>
-                </div>
-              </div>
-
-              <!-- Step 6 -->
-              <div class="timeline-step">
-                <div class="step-header">
-                  <div class="step-marker">6</div>
-                  <h3 class="step-title">Continue walking</h3>
-                </div>
-                <p class="step-desc">No tapping or scanning needed.</p>
-                <div class="step-chip-wrap">
-                  <span class="chip chip-built">In demo</span>
-                </div>
-              </div>
-
-              <!-- Step 7 -->
-              <div class="timeline-step">
-                <div class="step-header">
-                  <div class="step-marker">7</div>
-                  <h3 class="step-title">The next exhibit opens automatically</h3>
-                </div>
-                <p class="step-desc">Walk on and the story follows.</p>
+                <p class="step-desc">No QR scanning needed. As you stroll, the next exhibit follows effortlessly.</p>
                 <div class="step-chip-wrap">
                   <span class="chip chip-built">In demo</span>
                 </div>
@@ -287,7 +260,7 @@
         <div class="section-header center reveal">
           <span class="eyebrow">Interactive Demonstration</span>
           <h2 class="section-title">See it working</h2>
-          <p class="section-subtitle">Real-time BLE beacon detection opening exhibit pages on the SmartMuseum Android app.</p>
+          <p class="section-subtitle">Real-time BLE beacon detection on the SmartMuseum Android app.</p>
         </div>
 
         <div class="demo-wrap reveal">
@@ -324,14 +297,26 @@
         <div class="section-header center reveal">
           <span class="eyebrow">The Palace Tour</span>
           <h2 class="section-title">A three-stop palace tour (demo)</h2>
-          <p class="section-subtitle">Curated heritage narratives configured for the palace tour demonstration.</p>
+          <p class="section-subtitle">Curated heritage narratives configured for the palace tour demonstration. Click any stop or use the mobile carousel to preview.</p>
         </div>
 
-        <div class="tour-layout-wrapper">
+        <div class="tour-layout-wrapper has-mockup">
           <div class="tour-layout reveal">
+            <!-- Overview Selector Card -->
+            <button type="button" class="tour-overview-bar is-active" data-stop="0">
+              <span class="tour-overview-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </span>
+              <span class="tour-overview-text">SmartMuseum App Overview (3 of 3 stops explored)</span>
+              <span class="tour-overview-badge">APK Screenshot</span>
+            </button>
+
             <!-- Stop 1: Entrance Gate -->
-            <article class="tour-card">
-              <div class="tour-card-num">STOP 01</div>
+            <article class="tour-card" data-stop="1" tabindex="0" role="button" aria-label="View Entrance Gate on mobile display">
+              <div class="tour-card-header">
+                <div class="tour-card-num">STOP 01</div>
+                <span class="tour-card-visited">Visited</span>
+              </div>
               <h3 class="tour-card-title">Entrance Gate</h3>
               <p class="tour-card-desc">Where the golden palace greets you</p>
               <div class="tour-chips">
@@ -342,38 +327,158 @@
             </article>
 
             <!-- Stop 2: Durbar Hall -->
-            <article class="tour-card">
-              <div class="tour-card-num">STOP 02</div>
+            <article class="tour-card" data-stop="2" tabindex="0" role="button" aria-label="View Durbar Hall on mobile display">
+              <div class="tour-card-header">
+                <div class="tour-card-num">STOP 02</div>
+                <span class="tour-card-visited">Visited</span>
+              </div>
               <h3 class="tour-card-title">Durbar Hall</h3>
               <p class="tour-card-desc">Where the royal court gathered</p>
               <div class="tour-chips">
                 <span class="tag-neutral">Photos</span>
                 <span class="tag-neutral">Story</span>
-                <span class="tag-neutral">Timeline</span>
-                <span class="tag-neutral">Audio narration</span>
+                <span class="tag-neutral">Audio</span>
               </div>
             </article>
 
             <!-- Stop 3: Royal Gallery -->
-            <article class="tour-card">
-              <div class="tour-card-num">STOP 03</div>
+            <article class="tour-card" data-stop="3" tabindex="0" role="button" aria-label="View Royal Gallery on mobile display">
+              <div class="tour-card-header">
+                <div class="tour-card-num">STOP 03</div>
+                <span class="tour-card-visited">Visited</span>
+              </div>
               <h3 class="tour-card-title">Royal Gallery</h3>
               <p class="tour-card-desc">Art collected by a royal patron</p>
               <div class="tour-chips">
                 <span class="tag-neutral">Photos</span>
                 <span class="tag-neutral">Story</span>
-                <span class="tag-neutral">Timeline</span>
                 <span class="tag-neutral">Video</span>
               </div>
             </article>
           </div>
 
-          <!-- Exhibit Phone Mockup: Silently skipped if assets/images/screen-exhibit.png is missing -->
-          <div id="tour-exhibit-mockup" class="exhibit-phone-container">
+          <!-- Exhibit Phone Mockup: Interactive Carousel of APK screenshot & tour stops -->
+          <div id="tour-exhibit-mockup" class="exhibit-phone-container reveal">
             <div class="phone-mockup">
               <div class="phone-notch" aria-hidden="true"></div>
               <div class="phone-screen">
-                <img id="screen-exhibit-img" class="phone-screenshot-img" src="assets/images/screen-exhibit.png" alt="Exhibit Detail Screen" loading="lazy">
+                <div class="phone-carousel-track" id="tour-carousel-track" role="region" aria-label="SmartMuseum APK Tour Screens Carousel">
+                  
+                  <!-- Slide 0: Real APK Screenshot provided by user in assets/Photo -->
+                  <div class="phone-carousel-slide is-active" data-slide="0">
+                    <img class="phone-screenshot-img" src="assets/Photo/smartmuseum-app-screenshot.jpg" alt="SmartMuseum APK Tour Overview Screen" loading="lazy">
+                  </div>
+
+                  <!-- Slide 1: Entrance Gate Detail View -->
+                  <div class="phone-carousel-slide" data-slide="1">
+                    <div class="phone-detail-card">
+                      <div class="phone-card-top-bar">
+                        <span class="phone-card-stop-pill">Stop 01</span>
+                        <span class="phone-card-status">Visited</span>
+                      </div>
+                      <div class="phone-card-media-wrap">
+                        <img src="assets/images/stop-entrance-gate.jpg" alt="Entrance Gate" class="phone-card-img">
+                        <div class="phone-card-beacon-ping">
+                          <span class="beacon-pulse-dot"></span>
+                          BLE Active &bull; 1.2m
+                        </div>
+                      </div>
+                      <div class="phone-card-body">
+                        <h4 class="phone-card-title">Entrance Gate</h4>
+                        <p class="phone-card-subtitle">Where the golden palace greets you</p>
+                        <div class="phone-card-audio-pill">
+                          <span class="phone-audio-icon">&#9658;</span>
+                          <span class="phone-audio-meta">Palace Gate Narrative &bull; 2:15</span>
+                        </div>
+                        <p class="phone-card-text">Step through the illuminated archway where royal welcomes and historic ceremonies commenced.</p>
+                        <div class="phone-card-tags">
+                          <span class="chip-sm">Photos</span>
+                          <span class="chip-sm">Story</span>
+                          <span class="chip-sm">Timeline</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2: Durbar Hall Detail View -->
+                  <div class="phone-carousel-slide" data-slide="2">
+                    <div class="phone-detail-card">
+                      <div class="phone-card-top-bar">
+                        <span class="phone-card-stop-pill">Stop 02</span>
+                        <span class="phone-card-status">Visited</span>
+                      </div>
+                      <div class="phone-card-media-wrap">
+                        <img src="assets/images/stop-durbar-hall.jpg" alt="Durbar Hall" class="phone-card-img">
+                        <div class="phone-card-beacon-ping">
+                          <span class="beacon-pulse-dot"></span>
+                          BLE Active &bull; 0.8m
+                        </div>
+                      </div>
+                      <div class="phone-card-body">
+                        <h4 class="phone-card-title">Durbar Hall</h4>
+                        <p class="phone-card-subtitle">Where the royal court gathered</p>
+                        <div class="phone-card-audio-pill">
+                          <span class="phone-audio-icon">&#9658;</span>
+                          <span class="phone-audio-meta">Royal Assembly &bull; 3:40</span>
+                        </div>
+                        <p class="phone-card-text">Featuring ornate Belgian crystal chandeliers, Venetian mosaics, and the Maharaja's ceremonial throne room.</p>
+                        <div class="phone-card-tags">
+                          <span class="chip-sm">Audio</span>
+                          <span class="chip-sm">History</span>
+                          <span class="chip-sm">Architecture</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3: Royal Gallery Detail View -->
+                  <div class="phone-carousel-slide" data-slide="3">
+                    <div class="phone-detail-card">
+                      <div class="phone-card-top-bar">
+                        <span class="phone-card-stop-pill">Stop 03</span>
+                        <span class="phone-card-status">Visited</span>
+                      </div>
+                      <div class="phone-card-media-wrap">
+                        <img src="assets/images/stop-royal-gallery.jpg" alt="Royal Gallery" class="phone-card-img">
+                        <div class="phone-card-beacon-ping">
+                          <span class="beacon-pulse-dot"></span>
+                          BLE Active &bull; 1.5m
+                        </div>
+                      </div>
+                      <div class="phone-card-body">
+                        <h4 class="phone-card-title">Royal Gallery</h4>
+                        <p class="phone-card-subtitle">Art collected by a royal patron</p>
+                        <div class="phone-card-audio-pill">
+                          <span class="phone-audio-icon">&#9658;</span>
+                          <span class="phone-audio-meta">Art Collection Tour &bull; 4:05</span>
+                        </div>
+                        <p class="phone-card-text">Priceless oil masterworks, classical European sculptures, and royal heirlooms preserved across centuries.</p>
+                        <div class="phone-card-tags">
+                          <span class="chip-sm">Video</span>
+                          <span class="chip-sm">Masterpieces</span>
+                          <span class="chip-sm">Archive</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Carousel Navigation Controls -->
+                <div class="phone-carousel-controls" aria-label="Carousel navigation">
+                  <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Previous slide">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  </button>
+                  <div class="carousel-indicators" role="tablist">
+                    <button type="button" class="carousel-dot is-active" role="tab" aria-selected="true" data-slide-target="0" title="Tour Overview (APK Screenshot)"></button>
+                    <button type="button" class="carousel-dot" role="tab" aria-selected="false" data-slide-target="1" title="Stop 1: Entrance Gate"></button>
+                    <button type="button" class="carousel-dot" role="tab" aria-selected="false" data-slide-target="2" title="Stop 2: Durbar Hall"></button>
+                    <button type="button" class="carousel-dot" role="tab" aria-selected="false" data-slide-target="3" title="Stop 3: Royal Gallery"></button>
+                  </div>
+                  <button type="button" class="carousel-btn carousel-btn-next" aria-label="Next slide">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -389,7 +494,7 @@
         <div class="section-header center reveal">
           <span class="eyebrow">Smart Museum Infrastructure</span>
           <h2 class="section-title">A connected ecosystem powering immersive heritage experiences</h2>
-          <p class="section-subtitle">A seamless pipeline from battery-powered edge beacons to real-time visitor mobile applications and cloud intelligence.</p>
+          <p class="section-subtitle">A streamlined pipeline from battery-powered edge beacons to visitor mobile applications and cloud intelligence.</p>
         </div>
 
         <!-- Architecture Flow Diagram with HTML/CSS and inline SVG connectors -->
@@ -407,11 +512,11 @@
                 </div>
               </div>
               <h3 class="arch-node-title">1. BLE Beacons</h3>
-              <p class="arch-node-desc">Discreet, battery-powered beacons installed at key exhibits.</p>
+              <p class="arch-node-desc">Battery-powered beacons beside exhibits.</p>
               <ul class="arch-node-bullets">
                 <li>BLE broadcasting</li>
-                <li>Long battery life</li>
-                <li>No drilling / non-intrusive</li>
+                <li>Multi-year battery</li>
+                <li>Zero wiring / non-intrusive</li>
               </ul>
             </div>
 
@@ -423,7 +528,7 @@
               </svg>
             </div>
 
-            <!-- Node 2: Visitor smartphone -->
+            <!-- Node 2: Visitor Mobile App -->
             <div class="arch-node">
               <div class="arch-node-header">
                 <div class="arch-node-icon" aria-hidden="true">
@@ -433,8 +538,13 @@
                   </svg>
                 </div>
               </div>
-              <h3 class="arch-node-title">2. Visitor smartphone</h3>
-              <p class="arch-node-desc">Receives beacon signals and sends them to the app.</p>
+              <h3 class="arch-node-title">2. Visitor Mobile App</h3>
+              <p class="arch-node-desc">Detects signals and opens exhibit stories instantly.</p>
+              <ul class="arch-node-bullets">
+                <li>Proximity detection</li>
+                <li>Offline media playback</li>
+                <li>Zero login required</li>
+              </ul>
             </div>
 
             <!-- Connector Arrow 2 -> 3 -->
@@ -445,19 +555,23 @@
               </svg>
             </div>
 
-            <!-- Node 3: Museum app -->
+            <!-- Node 3: Cloud & CMS -->
             <div class="arch-node">
               <div class="arch-node-header">
                 <div class="arch-node-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
                   </svg>
                 </div>
               </div>
-              <h3 class="arch-node-title">3. Museum app</h3>
-              <p class="arch-node-desc">Processes location, delivers content, tracks interactions.</p>
+              <h3 class="arch-node-title">3. Cloud &amp; CMS</h3>
+              <p class="arch-node-desc">Central repository for all multimedia heritage assets.</p>
+              <div class="arch-content-chips">
+                <span class="tag-neutral">Audio Narratives</span>
+                <span class="tag-neutral">Archival Media</span>
+                <span class="tag-neutral">Multi-Language</span>
+                <span class="tag-neutral">Interactive Quizzes</span>
+              </div>
             </div>
 
             <!-- Connector Arrow 3 -> 4 -->
@@ -468,37 +582,7 @@
               </svg>
             </div>
 
-            <!-- Node 4: Cloud and CMS -->
-            <div class="arch-node">
-              <div class="arch-node-header">
-                <div class="arch-node-icon" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                  </svg>
-                </div>
-              </div>
-              <h3 class="arch-node-title">4. Cloud and CMS</h3>
-              <p class="arch-node-desc">A secure cloud platform that stores and manages all digital content.</p>
-              <div class="arch-content-chips">
-                <span class="tag-neutral">Videos</span>
-                <span class="tag-neutral">Images</span>
-                <span class="tag-neutral">Text and stories</span>
-                <span class="tag-neutral">Audio</span>
-                <span class="tag-neutral">Quiz and interactives</span>
-                <span class="tag-neutral">Multiple languages</span>
-                <span class="tag-neutral">Analytics and reports</span>
-              </div>
-            </div>
-
-            <!-- Connector Arrow 4 -> 5 -->
-            <div class="arch-connector" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-
-            <!-- Node 5: Museum dashboard -->
+            <!-- Node 4: Museum Dashboard -->
             <div class="arch-node">
               <div class="arch-node-header">
                 <div class="arch-node-icon" aria-hidden="true">
@@ -509,8 +593,13 @@
                   </svg>
                 </div>
               </div>
-              <h3 class="arch-node-title">5. Museum dashboard</h3>
-              <p class="arch-node-desc">Real-time insights and management.</p>
+              <h3 class="arch-node-title">4. Analytics Dashboard</h3>
+              <p class="arch-node-desc">Live insights into footfall, dwell time, and paths.</p>
+              <ul class="arch-node-bullets">
+                <li>Heatmap trends</li>
+                <li>Dwell analytics</li>
+                <li>Exhibit popularity</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -525,7 +614,7 @@
               </svg>
               <h3 class="dashboard-title">Museum dashboard concept</h3>
             </div>
-            <span class="chip chip-planned">This is just concept preview</span>
+            <span class="chip chip-planned">Concept preview</span>
           </div>
 
           <div class="dashboard-tiles-grid">
@@ -538,7 +627,7 @@
             </div>
             <!-- Tile 2: Top exhibits -->
             <div class="dash-tile">
-              <span class="dash-tile-label">Top exhibits</span>
+              <span class="dash-tile-label">Top exhibit</span>
               <div class="dash-tile-value dash-tile-value-text">Durbar Hall</div>
               <span class="dash-tile-sub">482 visits logged</span>
               <div class="dash-tile-graph-placeholder" aria-hidden="true"></div>
@@ -550,18 +639,11 @@
               <span class="dash-tile-sub">Active engagement</span>
               <div class="dash-tile-graph-placeholder" aria-hidden="true"></div>
             </div>
-            <!-- Tile 4: Visitor heatmap -->
-            <div class="dash-tile">
-              <span class="dash-tile-label">Visitor heatmap</span>
-              <div class="dash-tile-value dash-tile-value-text">Zone A (High)</div>
-              <span class="dash-tile-sub">Palace Gate & Hall</span>
-              <div class="dash-tile-graph-placeholder" aria-hidden="true"></div>
-            </div>
-            <!-- Tile 5: Content engagement -->
+            <!-- Tile 4: Content engagement -->
             <div class="dash-tile">
               <span class="dash-tile-label">Content engagement</span>
               <div class="dash-tile-value">92.4%</div>
-              <span class="dash-tile-sub">Audio & stories played</span>
+              <span class="dash-tile-sub">Audio &amp; stories played</span>
               <div class="dash-tile-graph-placeholder" aria-hidden="true"></div>
             </div>
           </div>
@@ -588,7 +670,7 @@
           <p class="section-subtitle">A sustainable digital transformation path for heritage monuments, galleries, and museums.</p>
         </div>
 
-        <!-- 12-Card Grid -->
+        <!-- 6-Card Streamlined High-Impact Grid -->
         <div class="impact-grid reveal">
           <!-- 1. Higher engagement -->
           <article class="impact-card">
@@ -597,8 +679,8 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
               </div>
             </div>
-            <h3 class="impact-card-title">Higher engagement</h3>
-            <p class="impact-card-desc">Immersive, interactive experiences that captivate every visitor.</p>
+            <h3 class="impact-card-title">Higher Engagement</h3>
+            <p class="impact-card-desc">Immersive, location-triggered storytelling that captivates every visitor hands-free.</p>
           </article>
 
           <!-- 2. Visitor analytics -->
@@ -608,19 +690,19 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
               </div>
             </div>
-            <h3 class="impact-card-title">Visitor analytics</h3>
-            <p class="impact-card-desc">Understand visitor behaviour, dwell time, popular exhibits and path insights.</p>
+            <h3 class="impact-card-title">Visitor Analytics &amp; Dwell Time</h3>
+            <p class="impact-card-desc">Understand footfall, peak visit hours, popular exhibits, and flow paths in real time.</p>
           </article>
 
-          <!-- 3. Heatmaps -->
+          <!-- 3. Multi-language -->
           <article class="impact-card">
             <div class="impact-card-top">
               <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
               </div>
             </div>
-            <h3 class="impact-card-title">Heatmaps</h3>
-            <p class="impact-card-desc">Visualise high-traffic areas and optimise exhibit planning.</p>
+            <h3 class="impact-card-title">Multi-Language Inclusivity</h3>
+            <p class="impact-card-desc">Deliver audio guides and narratives in regional and international languages effortlessly.</p>
           </article>
 
           <!-- 4. Gamification -->
@@ -630,96 +712,30 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               </div>
             </div>
-            <h3 class="impact-card-title">Gamification</h3>
-            <p class="impact-card-desc">Quizzes, challenges and rewards that make learning fun and memorable.</p>
+            <h3 class="impact-card-title">Gamification &amp; Quizzes</h3>
+            <p class="impact-card-desc">Interactive challenges, badges, and trivia that make heritage education fun and memorable.</p>
           </article>
 
-          <!-- 5. Accessibility -->
-          <article class="impact-card">
-            <div class="impact-card-top">
-              <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="4" r="2"></circle><path d="m4.93 10.93 4.24-4.24a2 2 0 0 1 2.83 0l4.24 4.24"></path><path d="M14 13v7a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2v-7"></path></svg>
-              </div>
-            </div>
-            <h3 class="impact-card-title">Accessibility</h3>
-            <p class="impact-card-desc">An inclusive experience for all visitors with audio, captions and easy navigation.</p>
-          </article>
-
-          <!-- 6. Digital archive -->
-          <article class="impact-card">
-            <div class="impact-card-top">
-              <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
-              </div>
-            </div>
-            <h3 class="impact-card-title">Digital archive</h3>
-            <p class="impact-card-desc">Digitally preserve rare documents, photos, videos and artefacts.</p>
-          </article>
-
-          <!-- 7. Heritage preservation -->
+          <!-- 5. Digital archive -->
           <article class="impact-card">
             <div class="impact-card-top">
               <div class="impact-icon-wrap" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
               </div>
             </div>
-            <h3 class="impact-card-title">Heritage preservation</h3>
-            <p class="impact-card-desc">Safeguard our legacy for future generations through digital documentation.</p>
+            <h3 class="impact-card-title">Digital Heritage Preservation</h3>
+            <p class="impact-card-desc">Digitally document and safeguard rare artifacts, manuscripts, and oral histories.</p>
           </article>
 
-          <!-- 8. Multi-language -->
-          <article class="impact-card">
-            <div class="impact-card-top">
-              <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              </div>
-            </div>
-            <h3 class="impact-card-title">Multi-language</h3>
-            <p class="impact-card-desc">Deliver content in multiple languages for a truly global experience.</p>
-          </article>
-
-          <!-- 9. Audio guide -->
-          <article class="impact-card">
-            <div class="impact-card-top">
-              <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
-              </div>
-            </div>
-            <h3 class="impact-card-title">Audio guide</h3>
-            <p class="impact-card-desc">Rich audio narratives that bring history to life in every language.</p>
-          </article>
-
-          <!-- 10. Mobile experience -->
-          <article class="impact-card">
-            <div class="impact-card-top">
-              <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-              </div>
-            </div>
-            <h3 class="impact-card-title">Mobile experience</h3>
-            <p class="impact-card-desc">Hands-free, location-aware content that visitors can access on their phones.</p>
-          </article>
-
-          <!-- 11. Student learning -->
+          <!-- 6. Student learning -->
           <article class="impact-card">
             <div class="impact-card-top">
               <div class="impact-icon-wrap" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
               </div>
             </div>
-            <h3 class="impact-card-title">Student learning</h3>
-            <p class="impact-card-desc">Curriculum-aligned content that supports education and research.</p>
-          </article>
-
-          <!-- 12. Visitor ratings -->
-          <article class="impact-card">
-            <div class="impact-card-top">
-              <div class="impact-icon-wrap" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-              </div>
-            </div>
-            <h3 class="impact-card-title">Visitor ratings</h3>
-            <p class="impact-card-desc">Feedback and ratings that help improve and delight continuously.</p>
+            <h3 class="impact-card-title">Educational Learning</h3>
+            <p class="impact-card-desc">Curriculum-aligned exploration for students, researchers, and guided institutional visits.</p>
           </article>
         </div>
       </div>
